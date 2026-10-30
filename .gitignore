@@ -1,3 +1,7 @@
 .venv/
 __pycache__/
 walkshed_output/
+*.xlsx
+*.csv
+.env
+walkshed_output*/
