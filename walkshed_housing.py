@@ -234,6 +234,7 @@ def normalize_address(a):
     for short, full in [(r"\bAVE\b\.?", "AVENUE"), (r"\bST\b\.?", "STREET"), (r"\bPL\b\.?", "PLACE"),
                         (r"\bRD\b\.?", "ROAD"), (r"\bBLVD\b\.?", "BOULEVARD"), (r"\bPKWY\b\.?", "PARKWAY")]:
         a = re.sub(short, full, a)
+    a = re.sub(r"\b(\d+)(ST|ND|RD|TH)\b", r"\1", a)  # PLUTO writes "86 STREET", not "86TH STREET"
     return re.sub(r"\s+", " ", a)
 
 
